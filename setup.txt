@@ -1,0 +1,37 @@
+mvn -B archetype:generate -D archetypeGroupId=com.adobe.aem -D archetypeArtifactId=aem-project-archetype -D archetypeVersion=23 -D appTitle="Bootcamp" -D appId="bootcamp" -D groupId="com.bootcamp.aem" -D artifactId="bootcamp-aem-project" -D version="0.0.1-SNAPSHOT" -D aemVersion="6.5.0" -D includeDispatcherConfig=n -D includeExamples=n  -D frontendmodule=general
+
+Failed to execute goal org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate (default-cli) on project standalone-pom: startup failed:
+[ERROR] General error during conversion: Conflicting module versions. Module [groovy-all is loaded in version 2.4.16 and you are trying to load version 2.4.8
+[ERROR]
+[ERROR] groovy.lang.GroovyRuntimeException: Conflicting module versions. Module [groovy-all is loaded in version 2.4.16 and you are trying to load version 2.4.8
+
+
+to fix this 
+go to below folder
+C:\Users\<>useName\.m2\repository\org\apache\maven\archetype\archetype-common\3.2.1
+updated the file
+archetype-common-3.2.1.pom
+with a groovy dependency version to = 2.4.8
+
+ <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>2.4.8</version>
+      <scope>compile</scope>
+    </dependency>
+	
+	
+	
+	
+We retails project
+
+apache celix maven scr plugin
+in parent/pom.xml 1.26.4
+in core = <!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+	
+	
